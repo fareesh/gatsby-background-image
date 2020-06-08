@@ -351,12 +351,6 @@ class BackgroundImage extends React.Component {
         key={componentKey}
         {...remainingProps}
       >
-        {/* Create style element to transition between pseudo-elements. */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: pseudoStyles,
-          }}
-        />
         {/* Set the original image(s) during SSR & if JS is disabled */}
         {this.state.hasNoScript && (
           <noscript>
@@ -367,6 +361,12 @@ class BackgroundImage extends React.Component {
             />
           </noscript>
         )}
+        {/* Create style element to transition between pseudo-elements. */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: pseudoStyles,
+          }}
+        />
         {children}
       </Tag>
     )
